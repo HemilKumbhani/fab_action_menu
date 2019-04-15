@@ -1,14 +1,74 @@
-# flutter_fab_menu_package
+# fab_action_menu
 
-A new Flutter package.
+The package is for setting up menu options on Floating Action Button
 
-## Getting Started
+Library provides options for adding button upto 3 menu button.
 
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+Here is the implementation in project
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+| Menu option 1 | Menu Option 2 |
+| ------------------ | ------------------ |
+| <img src="./assets/gif (1).gif" height="500" alt="gif (1)"/>  | <img src="./assets/gif (2).gif" height="500" alt="gif (2)"/>  |
+
+
+| Menu option 3 | 
+| ------------------ |
+| <img src="./assets/gif (3).gif" height="500" alt="gif (3)"/>  | 
+
+
+Here is the implementation detail.
+
+Add the package in pubspec.yaml
+
+``
+fab_action_menu: ^0.0.1
+``
+
+You will need to create a list of ` FloatingActionObject `
+
+The Menu will behave as per the number of items in list.
+You will have options to set Color, Icon and Id of the menu in 
+
+Now Add the floating action button in Scafold
+
+```
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(children: <Widget>[
+        Container(
+            child: Center(
+         ...
+         ...
+        )),
+      ]),
+      floatingActionButton: FabActionMenu(
+        buttonData: widget.object,
+        clickListener: this,
+        context: context,
+      ),
+    );
+  }
+```
+
+You will need to implement the callback listner in the state class
+
+```  
+class _PageState extends State<Page> implements CallbackListener{
+ ...
+ ...}
+```
+
+Thats it and you are good to go.
+
+
+ 
+
+
+
+
+
+
+
+
+
